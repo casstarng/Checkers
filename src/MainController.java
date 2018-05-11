@@ -15,7 +15,7 @@ import java.util.LinkedList;
 public class MainController {
 
     public static int commandCounter = 0;
-    public static boolean endOfProgram = false;
+    public static String endOfProgram = null;
 
     public static void main(String[] args){
 
@@ -54,6 +54,13 @@ public class MainController {
          */
         nextButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
+                // Exit program if the end of commands is reached
+                if (commandCounter >= commands.size()){
+                    JOptionPane.showMessageDialog(null, "No more commands");
+                    System.exit(0);
+                }
+
                 System.out.println(commands.get(commandCounter));
                 int[] coord = translateCoordinate(commands.get(commandCounter));
 
@@ -61,20 +68,19 @@ public class MainController {
                 if (board.getBoard()[coord[0]][coord[1]] != null){
                     Color movingColor = board.getBoard()[coord[0]][coord[1]].getColor();
                     boolean isKing = board.getBoard()[coord[0]][coord[1]].isKing();
-                    System.out.println(endOfProgram);
                     endOfProgram = boardManager.move(coord[0], coord[1], coord[2], coord[3], movingColor, isKing);
-                    System.out.println(endOfProgram);
                     commandCounter++;
                     frame.repaint();
 
-                    if (endOfProgram){
-                        JOptionPane.showMessageDialog(null, "End");
+                    // Detect if alert is shown (game finished or error)
+                    if (endOfProgram != null){
+                        JOptionPane.showMessageDialog(null, endOfProgram);
                         System.exit(0);
                     }
                 }
                 // If Piece does not exist, throw an error
                 else {
-                    JOptionPane.showMessageDialog(null, "Error: There is no piece to move at " + coord[0] + "-" + coord[1]);
+                    JOptionPane.showMessageDialog(null, "Error: There is no piece to move at " + commands.get(commandCounter).split("-")[0]);
                     System.exit(0);
                 }
 

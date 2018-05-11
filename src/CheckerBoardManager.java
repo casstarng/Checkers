@@ -64,7 +64,10 @@ public class CheckerBoardManager extends JPanel {
         }
     }
 
-    public boolean move(int y, int x, int g, int h, Color color, boolean isKing){
+    //TODO make sure correct color turn
+    //TODO make sure jumps need to be taken
+    //TODO make previous
+    public String move(int y, int x, int g, int h, Color color, boolean isKing){
 
         // If piece reaches end, change piece to king
         if (color == Color.BLACK && g == 7) isKing = true;
@@ -86,7 +89,7 @@ public class CheckerBoardManager extends JPanel {
                 board.movePiece(y, x, g, h, color, isKing);
             }
             else{
-                System.out.println("Illegal Move");
+                return "Illegal Move";
             }
         }
         // Check if piece moves 2 spaces (needs to delete opposing piece)
@@ -127,7 +130,7 @@ public class CheckerBoardManager extends JPanel {
                     board.deletePiece(y + 1, x + 1);
                 }
                 else {
-                    System.out.println("Illegal Move");
+                    return "Illegal Move";
                 }
             }
             // If piece is red, check if move goes up
@@ -143,19 +146,23 @@ public class CheckerBoardManager extends JPanel {
                     board.deletePiece(y - 1, x + 1);
                 }
                 else {
-                    System.out.println("Illegal Move");
+                    return "Illegal Move";
                 }
             }
             else{
-                System.out.println("Illegal Move");
+                return "Illegal Move";
             }
         }
+        else{
+            return "Illegal Move";
+        }
 
+        // Check for a winner
         String win = checkWinner();
         if (win != null){
-            return true;
+            return win;
         }
-        else return false;
+        else return null;
     }
 
     public String checkWinner(){
@@ -174,10 +181,10 @@ public class CheckerBoardManager extends JPanel {
             }
         }
         if (redCount == 0){
-            return "Black Wins";
+            return "Black Wins!";
         }
         else if (blackCount == 0){
-            return "Red Wins";
+            return "Red Wins!";
         }
         else return null;
     }
