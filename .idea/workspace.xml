@@ -80,8 +80,8 @@
           <file leaf-file-name="CheckerBoardManager.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/CheckerBoardManager.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="685">
-                  <caret line="267" column="13" lean-forward="false" selection-start-line="267" selection-start-column="13" selection-end-line="267" selection-end-column="13" />
+                <state relative-caret-position="1542">
+                  <caret line="136" column="16" lean-forward="false" selection-start-line="136" selection-start-column="16" selection-end-line="136" selection-end-column="16" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -391,14 +391,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/CheckerBoardManager.java</url>
-          <line>237</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
@@ -862,8 +854,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CheckerBoardManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="267" column="13" lean-forward="false" selection-start-line="267" selection-start-column="13" selection-end-line="267" selection-end-column="13" />
+        <state relative-caret-position="1542">
+          <caret line="136" column="16" lean-forward="false" selection-start-line="136" selection-start-column="16" selection-end-line="136" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -134,6 +134,10 @@ public class CheckerBoardManager extends JPanel {
                     board.movePiece(y, x, g, h, color, isKing);
                     board.deletePiece(y + 1, x + 1);
                 }
+                
+                // Check if next step is chainable
+                nextChain = checkForChain(g, h, color, isKing);
+                if (nextChain != null) return null;
             }
             // If piece is black, check if move goes down
             else if (color == Color.BLACK && g > y){
@@ -230,15 +234,11 @@ public class CheckerBoardManager extends JPanel {
 
     public ArrayList<String> checkForChain(int y, int x, Color color, boolean isKing){
         ArrayList<String> chainOptions = new ArrayList<>();
-        // If Color is King
-        if (isKing){
-
-        }
         // If Color is black
-        else if (color == Color.BLACK){
+        if (color == Color.BLACK || isKing){
             // If piece can jump down-right
             if (y + 2 < 8 && x + 2 < 8 && board.getBoard()[y + 1][x + 1] != null
-                    && board.getBoard()[y + 1][x + 1].getColor() == Color.RED
+                    && board.getBoard()[y + 1][x + 1].getColor() != color
                     && board.getBoard()[y + 2][x + 2] == null){
                 chainOptions.add(y + "-" + x + "-" + (y + 2) + "-" + (x + 2));
             }
@@ -250,10 +250,10 @@ public class CheckerBoardManager extends JPanel {
             }
         }
         // If Color is red
-        else if (color == Color.RED){
+        if (color == Color.RED || isKing){
             // If piece can jump up-right
             if (y - 2 >= 0 && x + 2 < 8 && board.getBoard()[y - 1][x + 1] != null
-                    && board.getBoard()[y - 1][x + 1].getColor() == Color.BLACK
+                    && board.getBoard()[y - 1][x + 1].getColor() != color
                     && board.getBoard()[y - 2][x + 2] == null){
                 chainOptions.add(y + "-" + x + "-" + (y - 2) + "-" + (x + 2));
             }
