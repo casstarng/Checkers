@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Cassidy Tarng on 5/8/2018.
@@ -10,7 +11,7 @@ public class CheckerBoardManager extends JPanel {
     CheckerBoard board = new CheckerBoard();
     Color nextTurn;
     boolean initialTurn = true;
-    String nextChain;
+    ArrayList<String> nextChain = null;
 
     public CheckerBoardManager(CheckerBoard board){
         test = "this is a test";
@@ -74,9 +75,8 @@ public class CheckerBoardManager extends JPanel {
     public String move(int y, int x, int g, int h, Color color, boolean isKing){
 
         if (nextChain != null){
-            String[] chain = nextChain.split("-");
-            if (y == Integer.parseInt(chain[0]) && x == Integer.parseInt(chain[1]) &&
-                    g == Integer.parseInt(chain[2]) && h == Integer.parseInt(chain[3])){
+            String currentCommand = y + "-" + x + "-" + g + "-" + h;
+            if (nextChain.contains(currentCommand)){
                 nextChain = null;
             }
             else {
@@ -228,7 +228,8 @@ public class CheckerBoardManager extends JPanel {
         else return null;
     }
 
-    public String checkForChain(int y, int x, Color color, boolean isKing){
+    public ArrayList<String> checkForChain(int y, int x, Color color, boolean isKing){
+        ArrayList<String> chainOptions = new ArrayList<>();
         // If Color is King
         if (isKing){
 
@@ -239,13 +240,13 @@ public class CheckerBoardManager extends JPanel {
             if (y + 2 < 8 && x + 2 < 8 && board.getBoard()[y + 1][x + 1] != null
                     && board.getBoard()[y + 1][x + 1].getColor() == Color.RED
                     && board.getBoard()[y + 2][x + 2] == null){
-                return y + "-" + x + "-" + (y + 2) + "-" + (x + 2);
+                chainOptions.add(y + "-" + x + "-" + (y + 2) + "-" + (x + 2));
             }
             // If piece can jump down-left
-            else if (y + 2 < 8 && x - 2 >= 0 && board.getBoard()[y + 1][x - 1] != null
+            if (y + 2 < 8 && x - 2 >= 0 && board.getBoard()[y + 1][x - 1] != null
                     && board.getBoard()[y + 1][x - 1].getColor() == Color.RED
                     && board.getBoard()[y + 2][x - 2] == null){
-                return y + "-" + x + "-" + (y + 2) + "-" + (x - 2);
+                chainOptions.add(y + "-" + x + "-" + (y + 2) + "-" + (x - 2));
             }
         }
         // If Color is red
@@ -254,16 +255,17 @@ public class CheckerBoardManager extends JPanel {
             if (y - 2 >= 0 && x + 2 < 8 && board.getBoard()[y - 1][x + 1] != null
                     && board.getBoard()[y - 1][x + 1].getColor() == Color.BLACK
                     && board.getBoard()[y - 2][x + 2] == null){
-                return y + "-" + x + "-" + (y - 2) + "-" + (x + 2);
+                chainOptions.add(y + "-" + x + "-" + (y - 2) + "-" + (x + 2));
             }
             // If piece can jump up-left
-            else if (y - 2 >= 0 && x - 2 >= 0 && board.getBoard()[y - 1][x - 1] != null
+            if (y - 2 >= 0 && x - 2 >= 0 && board.getBoard()[y - 1][x - 1] != null
                     && board.getBoard()[y - 1][x - 1].getColor() == Color.BLACK
                     && board.getBoard()[y - 2][x - 2] == null){
-                return y + "-" + x + "-" + (y - 2) + "-" + (x - 2);
+                chainOptions.add(y + "-" + x + "-" + (y - 2) + "-" + (x - 2));
             }
         }
-        return null;
+        if (chainOptions.size() > 0) return chainOptions;
+        else return null;
     }
 
 }
