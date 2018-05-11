@@ -42,8 +42,8 @@ public class CheckerBoardManager extends JPanel {
         // Paint CheckerPiece
         for(int i = 0; i < board.getBoard().length; i++){
             for(int k = 0; k < board.getBoard()[i].length; k++){
-                if (board.getBoard()[k][i] != null){
-                    paintPiece(g, i, k, board.getBoard()[k][i].getColor(), board.getBoard()[k][i].isKing());
+                if (board.getBoard()[i][k] != null){
+                    paintPiece(g, k, i, board.getBoard()[i][k].getColor(), board.getBoard()[i][k].isKing());
                 }
             }
         }
@@ -79,6 +79,13 @@ public class CheckerBoardManager extends JPanel {
             }
             else {
                 return "Illegal Move: Another jump must be made";
+            }
+        }
+        else{
+            ArrayList<String> mandatoryJumps = getMandatoryJump();
+            String currentCommand = y + "-" + x + "-" + g + "-" + h;
+            if (mandatoryJumps.size() > 0 && !mandatoryJumps.contains(currentCommand)){
+                return "Illegal Move: A jump must be made";
             }
         }
 
@@ -264,6 +271,24 @@ public class CheckerBoardManager extends JPanel {
         }
         if (chainOptions.size() > 0) return chainOptions;
         else return null;
+    }
+
+    public ArrayList<String> getMandatoryJump(){
+        ArrayList<String> mandatoryJumps = new ArrayList<>();
+        for(int i = 0; i < board.getBoard().length; i++){
+            for(int k = 0; k < board.getBoard()[i].length; k++){
+                if (!initialTurn && board.getBoard()[i][k] != null
+                        && board.getBoard()[i][k].getColor() == nextTurn){
+                    CheckerPiece piece = board.getBoard()[i][k];
+                    Color pieceColor = piece.getColor();
+                    Boolean isKing = piece.isKing();
+
+                    ArrayList<String> jumps = checkForChain(i, k, pieceColor, isKing);
+                    if (jumps != null) mandatoryJumps.addAll(jumps);
+                }
+            }
+        }
+        return mandatoryJumps;
     }
 
 }

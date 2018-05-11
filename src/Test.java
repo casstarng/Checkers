@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.*;
 //https://stackoverflow.com/questions/21655028/create-a-chess-board-in-java
@@ -89,26 +90,8 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        Runnable r = new Runnable() {
-
-            @Override
-            public void run() {
-                Test cb =
-                        new Test();
-
-                JFrame f = new JFrame("ChessChamp");
-                f.add(cb.getGui());
-                f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                f.setLocationByPlatform(true);
-
-                // ensures the frame is the minimum size it needs to be
-                // in order display the components within it
-                f.pack();
-                // ensures the minimum size is enforced.
-                f.setMinimumSize(f.getSize());
-                f.setVisible(true);
-            }
-        };
-        SwingUtilities.invokeLater(r);
+        ArrayList<String> test = new ArrayList<>();
+        ArrayList<String> test2 = null;
+        test.addAll(test2);
     }
 }
