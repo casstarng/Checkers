@@ -68,8 +68,6 @@ public class CheckerBoardManager extends JPanel {
         }
     }
 
-    //TODO make sure correct color turn (for skip)
-    //TODO chain jumping
     //TODO make sure jumps need to be taken
     //TODO make previous
     public String move(int y, int x, int g, int h, Color color, boolean isKing){
@@ -134,7 +132,7 @@ public class CheckerBoardManager extends JPanel {
                     board.movePiece(y, x, g, h, color, isKing);
                     board.deletePiece(y + 1, x + 1);
                 }
-                
+
                 // Check if next step is chainable
                 nextChain = checkForChain(g, h, color, isKing);
                 if (nextChain != null) return null;
@@ -244,7 +242,7 @@ public class CheckerBoardManager extends JPanel {
             }
             // If piece can jump down-left
             if (y + 2 < 8 && x - 2 >= 0 && board.getBoard()[y + 1][x - 1] != null
-                    && board.getBoard()[y + 1][x - 1].getColor() == Color.RED
+                    && board.getBoard()[y + 1][x - 1].getColor() != color
                     && board.getBoard()[y + 2][x - 2] == null){
                 chainOptions.add(y + "-" + x + "-" + (y + 2) + "-" + (x - 2));
             }
@@ -259,7 +257,7 @@ public class CheckerBoardManager extends JPanel {
             }
             // If piece can jump up-left
             if (y - 2 >= 0 && x - 2 >= 0 && board.getBoard()[y - 1][x - 1] != null
-                    && board.getBoard()[y - 1][x - 1].getColor() == Color.BLACK
+                    && board.getBoard()[y - 1][x - 1].getColor() != color
                     && board.getBoard()[y - 2][x - 2] == null){
                 chainOptions.add(y + "-" + x + "-" + (y - 2) + "-" + (x - 2));
             }
