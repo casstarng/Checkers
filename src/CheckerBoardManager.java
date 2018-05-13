@@ -97,7 +97,7 @@ public class CheckerBoardManager extends JPanel {
         if (color == Color.RED && g == 0) isKing = true;
 
         // Check if piece moves 1 space
-        if (Math.abs(y - g) == 1 && Math.abs(x - h) == 1){
+        if (Math.abs(y - g) == 1 && Math.abs(x - h) == 1 && board.getBoard()[g][h] == null){
 
             // If piece is a king, then move
             if (isKing){
@@ -116,7 +116,7 @@ public class CheckerBoardManager extends JPanel {
             }
         }
         // Check if piece moves 2 spaces (needs to delete opposing piece)
-        else if (Math.abs(y - g) == 2 && Math.abs(x - h) == 2){
+        else if (Math.abs(y - g) == 2 && Math.abs(x - h) == 2 && board.getBoard()[g][h] == null){
             // If piece is a king
             if (isKing){
                 // If piece moves up-left
