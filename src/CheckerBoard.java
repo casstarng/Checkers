@@ -25,13 +25,17 @@ public class CheckerBoard {
     }
 
     public void movePiece(int y, int x, int g, int h, Color color, boolean isKing){
-        board[y][x] = null;
-        board[g][h] = new CheckerPiece(color);
-        if (isKing) board[g][h].setKing();
+        deletePiece(y, x);
+        insertPiece(g, h, color, isKing);
     }
 
     public void deletePiece(int y, int x){
         board[y][x] = null;
+    }
+
+    public void insertPiece(int y, int x, Color color, boolean isKing) {
+        board[y][x] = new CheckerPiece(color);
+        if (isKing) board[y][x].setKing();
     }
 
 }

@@ -64,7 +64,7 @@ public class MainController {
                 if (board.getBoard()[coord[0]][coord[1]] != null){
                     Color movingColor = board.getBoard()[coord[0]][coord[1]].getColor();
                     boolean isKing = board.getBoard()[coord[0]][coord[1]].isKing();
-                    endOfProgram = boardManager.move(coord[0], coord[1], coord[2], coord[3], movingColor, isKing);
+                    endOfProgram = boardManager.move(coord[0], coord[1], coord[2], coord[3], movingColor, isKing, commandCounter);
                     commandCounter++;
                     frame.repaint();
 
@@ -88,9 +88,18 @@ public class MainController {
          */
         previousButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                commandCounter--;
-                System.out.println(commands.get(commandCounter));
-                frame.repaint();
+                if (commandCounter > 0){
+                    commandCounter--;
+                    int[] coord = translateCoordinate(commands.get(commandCounter));
+                    Color movingColor = board.getBoard()[coord[2]][coord[3]].getColor();
+                    boolean isKing = board.getBoard()[coord[2]][coord[3]].isKing();
+                    boardManager.rewind(coord[0], coord[1], coord[2], coord[3], movingColor, isKing, commandCounter);
+                    System.out.println(commands.get(commandCounter));
+                    frame.repaint();
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Beginning of the game has been reached");
+                }
             }
         } );
     }
