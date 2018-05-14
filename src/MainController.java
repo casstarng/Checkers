@@ -42,12 +42,8 @@ public class MainController {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        System.out.println("1" + board.getBoard()[0][0]);
-
         frame.add(boardManager);
         frame.add(commandPanel);
-
-        System.out.println("3" + board.getBoard()[0][0]);
 
         /**
          * Handle Next Button
@@ -99,6 +95,10 @@ public class MainController {
         } );
     }
 
+    /**
+     * Reads file commands.txt
+     * @return list of commands
+     */
     private static LinkedList<String> getCommands(){
         try {
             LinkedList<String> commands = new LinkedList<>();
@@ -117,6 +117,9 @@ public class MainController {
         return null;
     }
 
+    /**
+     * Translates coordinates from commands.txt into 2d-array grids
+     */
     private static int[] translateCoordinate(String coord){
         String[] coordValue = coord.split("-");
         String val1 = returnTranslatedCoordinate(coordValue[0]);
@@ -130,6 +133,9 @@ public class MainController {
         return xyCoord;
     }
 
+    /**
+     * Definitions for the coordinates
+     */
     private static String returnTranslatedCoordinate(String coord){
         switch (coord){
             case "1": return "0-0";

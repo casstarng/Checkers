@@ -68,8 +68,10 @@ public class CheckerBoardManager extends JPanel {
         }
     }
 
-    //TODO make sure jumps need to be taken
-    //TODO make previous
+    /**
+     * Handles moving pieces. All logic is contained here
+     * @return message if a winner is announced or an illegal move is made
+     */
     public String move(int y, int x, int g, int h, Color color, boolean isKing){
 
         if (nextChain != null){
@@ -213,9 +215,14 @@ public class CheckerBoardManager extends JPanel {
         else return null;
     }
 
+    /**
+     * Checks if a winner exists
+     * @return winner message
+     */
     public String checkWinner(){
         int redCount = 0;
         int blackCount = 0;
+        // search through entire board and count number of reds and blacks
         for(int i = 0; i < board.getBoard().length; i++){
             for(int k = 0; k < board.getBoard()[i].length; k++){
                 if (board.getBoard()[k][i] != null){
@@ -237,6 +244,10 @@ public class CheckerBoardManager extends JPanel {
         else return null;
     }
 
+    /**
+     * Checks whether a chain can be made
+     * @return list of possible chains
+     */
     public ArrayList<String> checkForChain(int y, int x, Color color, boolean isKing){
         ArrayList<String> chainOptions = new ArrayList<>();
         // If Color is black
@@ -273,10 +284,15 @@ public class CheckerBoardManager extends JPanel {
         else return null;
     }
 
+    /**
+     * Checks whether a mandatory jump exists
+     * @return list of mandatory jumps
+     */
     public ArrayList<String> getMandatoryJump(){
         ArrayList<String> mandatoryJumps = new ArrayList<>();
         for(int i = 0; i < board.getBoard().length; i++){
             for(int k = 0; k < board.getBoard()[i].length; k++){
+                // check whether a jump exists
                 if (!initialTurn && board.getBoard()[i][k] != null
                         && board.getBoard()[i][k].getColor() == nextTurn){
                     CheckerPiece piece = board.getBoard()[i][k];

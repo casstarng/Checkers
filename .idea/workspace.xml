@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eecdadcf-2e36-4443-956b-fa27c63da0dd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Commands.txt" afterPath="$PROJECT_DIR$/Commands.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CheckerBoardManager.java" afterPath="$PROJECT_DIR$/src/CheckerBoardManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainController.java" afterPath="$PROJECT_DIR$/src/MainController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +16,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-168">
-              <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+            <state relative-caret-position="273">
+              <caret line="94" column="12" lean-forward="true" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -34,14 +29,14 @@
       <file leaf-file-name="CheckerBoardManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CheckerBoardManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="104" column="13" lean-forward="true" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+            <state relative-caret-position="360">
+              <caret line="148" column="57" lean-forward="true" selection-start-line="148" selection-start-column="57" selection-end-line="148" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Commands.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Commands.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Commands.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
@@ -64,8 +59,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/CheckerBoardManager.java" />
         <option value="$PROJECT_DIR$/Commands.txt" />
+        <option value="$PROJECT_DIR$/src/CheckerBoardManager.java" />
+        <option value="$PROJECT_DIR$/src/MainController.java" />
       </list>
     </option>
   </component>
@@ -419,7 +415,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/CheckerBoardManager.java</url>
-          <line>99</line>
+          <line>101</line>
           <properties />
         </line-breakpoint>
       </breakpoints>
@@ -432,26 +428,42 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/MainController.java">
+    <entry file="file://$PROJECT_DIR$/Commands.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-168">
-          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="391">
+          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CheckerBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CheckerPiece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CheckerBoardManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="104" column="13" lean-forward="true" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+        <state relative-caret-position="360">
+          <caret line="148" column="57" lean-forward="true" selection-start-line="148" selection-start-column="57" selection-end-line="148" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Commands.txt">
+    <entry file="file://$PROJECT_DIR$/src/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+        <state relative-caret-position="273">
+          <caret line="94" column="12" lean-forward="true" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="12" />
           <folding />
         </state>
       </provider>
